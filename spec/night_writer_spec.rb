@@ -13,4 +13,8 @@ RSpec.describe NightWriter do
   it "can access incoming message" do
     expect(@night_writer.incoming_text).to be_a(File)
   end
+
+  it "can print the number of characters in first input file" do
+    expect(@night_writer.character_count).to eq(11)
+  end
 end
