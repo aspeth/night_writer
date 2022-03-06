@@ -22,15 +22,21 @@ RSpec.describe NightWriter do
   end
 
   context "using real files" do
-    before(:each) do
-      ARGV[0] = 'message.txt'
+    it "can translate a single letter" do
+      ARGV[0] = 'a.txt'
       ARGV[1] = 'braille.txt'
-      @night_writer = NightWriter.new
+      night_writer = NightWriter.new
+      expect(night_writer.translated_text).to eq("O. \n.. \n.. ")
     end
 
-    it "can translate a single letter" do
-      @night_writer.translate
-      expect(@night_writer.translated_text).to eq("O. \n.. \n.. ")
+    it "can translate multiple letters" do
+      ARGV[0] = 'message.txt'
+      ARGV[1] = 'braille.txt'
+      night_writer = NightWriter.new
+      night_writer.translate
+      expect(night_writer.translated_text).to eq("O. O. OO \n.. O. .. \n.. .. .. ")
+
+      # expect(@night_writer.translated_text).to eq("
     end
   end
 end
