@@ -1,1 +1,1 @@
-puts "Created '#{ARGV[1]}' containing 256 characters"
+puts "Created '#{ARGV[1]}' containing #{night_writer.character_count} characters"

@@ -15,6 +15,6 @@ RSpec.describe NightWriter do
   end
 
   it "can print the number of characters in first input file" do
-    expect(@night_writer.character_count).to eq(11)
+    expect(@night_writer.character_count).to eq(12)
   end
 end
