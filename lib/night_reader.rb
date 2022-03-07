@@ -1,12 +1,8 @@
-class NightReader
-  attr_reader :incoming_text
+require './lib/dictionary'
+require './lib/night_object'
 
-  def initialize
-    @incoming_text = File.open(ARGV[0], "r").read
-    @outgoing_file = File.open(ARGV[1], "w+")
-  end
-
-  def incoming_character_count
-    @incoming_text.length
+class NightReader < NightObject
+  def translated_text
+    translated_text = braille_to_english(@incoming_text.chomp)
   end
 end
