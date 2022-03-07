@@ -24,19 +24,22 @@ RSpec.describe NightWriter do
   context "using real files" do
     it "can translate a single letter" do
       ARGV[0] = 'a.txt'
-      ARGV[1] = 'braille.txt'
+      ARGV[1] = 'new_a.txt'
       night_writer = NightWriter.new
-      expect(night_writer.translated_text).to eq("O. \n.. \n.. ")
+      expect(night_writer.translated_text).to eq("O.\n..\n..\n\n")
     end
 
     it "can translate multiple letters" do
-      ARGV[0] = 'message.txt'
-      ARGV[1] = 'braille.txt'
+      ARGV[0] = 'abc.txt'
+      ARGV[1] = 'new_abc.txt'
       night_writer = NightWriter.new
-      night_writer.translate
-      expect(night_writer.translated_text).to eq("O. O. OO \n.. O. .. \n.. .. .. ")
+    end
 
-      # expect(@night_writer.translated_text).to eq("
+    it "can place a line break every 80 characters" do
+      ARGV[0] = '40.txt'
+      ARGV[1] = 'new_40.txt'
+      night_writer = NightWriter.new
+      expect(night_writer.translated_text[80]).to eq("\n")
     end
   end
 end
