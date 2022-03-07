@@ -1,8 +1,5 @@
-require './lib/dictionary'
-require './lib/night_object'
+require './lib/reader'
 
-class NightReader < NightObject
-  def translated_text
-    translated_text = braille_to_english(@incoming_text.chomp)
-  end
-end
+night_reader = Reader.new
+night_reader.translate
+puts "Created '#{ARGV[1]}' containing #{night_reader.incoming_character_count} characters"
