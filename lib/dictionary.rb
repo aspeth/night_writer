@@ -80,30 +80,39 @@ module Dictionary
                         "z" => { 1 => "O.",
                                  2 => ".O",
                                  3 => "OO" },
-                        " " => { 1 => "  ",
-                                 2 => "  ",
-                                 3 => "  " },
+                        " " => { 1 => "..",
+                                 2 => "..",
+                                 3 => ".." },
                   }
-    top_row = []
-    incoming_text.each_char { |char| top_row << letter_hash.values_at(char)[0][1] }
-    middle_row = []
-    incoming_text.each_char { |char| middle_row << letter_hash.values_at(char)[0][2] }
-    bottom_row = []
-    incoming_text.each_char { |char| bottom_row << letter_hash.values_at(char)[0][3] }
+    # top_row = []
+    # incoming_text.each_char { |char| top_row << letter_hash.values_at(char)[0][1] }
+    # middle_row = []
+    # incoming_text.each_char { |char| middle_row << letter_hash.values_at(char)[0][2] }
+    # bottom_row = []
+    # incoming_text.each_char { |char| bottom_row << letter_hash.values_at(char)[0][3] }
 
-    formatted_top_row = top_row.each_slice(40).map { |string| string.join }
-    formatted_middle_row = middle_row.each_slice(40).map { |string| string.join }
-    formatted_bottom_row = bottom_row.each_slice(40).map { |string| string.join }
+    rows = []
+    formatted_rows = []
+    3.times do |index|
+      rows[index] = []
+      formatted_rows[index] = []
+      incoming_text.each_char { |char| rows[index] << letter_hash.values_at(char)[0][index+1] }
+      formatted_rows[index] = rows[index].each_slice(40).map { |string| string.join }
+    end
 
-    row1 = formatted_top_row
-    row2 = formatted_middle_row
-    row3 = formatted_bottom_row
+    # formatted_top_row = top_row.each_slice(40).map { |string| string.join }
+    # formatted_middle_row = middle_row.each_slice(40).map { |string| string.join }
+    # formatted_bottom_row = bottom_row.each_slice(40).map { |string| string.join }
+    #
+    # row1 = formatted_top_row
+    # row2 = formatted_middle_row
+    # row3 = formatted_bottom_row
 
-    counter = row1.count
+    counter = formatted_rows[0].count
     index_num = 0
     formatted_text = ""
     counter.times do
-      formatted_text << "#{row1[index_num]}\n#{row2[index_num]}\n#{row3[index_num]}\n\n"
+      formatted_text << "#{formatted_rows[0][index_num]}\n#{formatted_rows[1][index_num]}\n#{formatted_rows[2][index_num]}\n\n"
       index_num += 1
     end
     formatted_text
