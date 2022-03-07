@@ -9,10 +9,6 @@ class NightWriter
     @outgoing_file = File.open(ARGV[1], "w+")
   end
 
-  def outgoing_text
-    @outgoing_file.read
-  end
-
   def incoming_character_count
     @incoming_text.length
   end

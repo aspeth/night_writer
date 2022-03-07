@@ -19,6 +19,7 @@ RSpec.describe NightWriter do
     it "can print the number of characters in first input file" do
       expect(@night_writer.incoming_character_count).to eq(12)
     end
+
   end
 
   context "using real files" do
@@ -27,6 +28,13 @@ RSpec.describe NightWriter do
       ARGV[1] = 'new_a.txt'
       night_writer = NightWriter.new
       expect(night_writer.translated_text).to eq("O.\n..\n..\n\n")
+    end
+
+    it "can read translated text" do
+      ARGV[0] = 'a.txt'
+      ARGV[1] = 'new_a.txt'
+      night_writer = NightWriter.new
+      expect(night_writer.translate).to eq(10)
     end
 
     it "can translate multiple letters" do
