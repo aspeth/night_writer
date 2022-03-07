@@ -26,6 +26,7 @@ module Dictionary
 
   def braille_to_english(incoming_text)
     letter_hash = Alphabet.new.letter_hash.invert
-    require "pry"; binding.pry
+# require "pry"; binding.pry
+    letter_hash[incoming_text.split("\n")]
   end
 end
