@@ -17,7 +17,7 @@ RSpec.describe Reader do
     end
 
     it "can print the number of characters in first input file" do
-      expect(@night_reader.incoming_character_count).to eq(12)
+      expect(@night_reader.incoming_character_count).to eq(1)
     end
   end
 
