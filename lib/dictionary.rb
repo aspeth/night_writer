@@ -36,8 +36,16 @@ module Dictionary
       text_array.each do |lines|
           braille_letter << lines[index..index+1]
       end
-      message << letter_hash[braille_letter]
-      index += 2
+
+      if braille_letter.include?("")
+        empty_string = braille_letter.index("")
+        message << letter_hash[braille_letter[0..empty_string-1]]
+        message << "\n"
+        message << letter_hash[braille_letter[empty_string+1..empty_string+4]]
+      else
+        message << letter_hash[braille_letter]
+        index += 2
+      end
     end
     message
   end

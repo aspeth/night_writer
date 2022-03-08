@@ -33,7 +33,7 @@ RSpec.describe NightObject do
       ARGV[0] = 'a.txt'
       ARGV[1] = 'new_a.txt'
       night_object = NightObject.new
-      expect(night_object.translate).to eq(10)
+      expect(night_object.translate).to eq("O.\n..\n..\n\n")
     end
 
     it "can translate multiple letters" do
