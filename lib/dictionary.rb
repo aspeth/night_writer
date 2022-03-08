@@ -42,3 +42,19 @@ module Dictionary
     message
   end
 end
+
+# letter_hash = Alphabet.new.letter_hash.invert
+# text_array = incoming_text.split("\n")
+#
+# counter = text_array[0].length / 2
+# message = ""
+# index = 0
+# counter.times do
+#   braille_letter = []
+#   text_array.each do |lines|
+#     braille_letter << lines[index..index+1]
+#   end
+#   message << letter_hash[braille_letter]
+#   index += 2
+# end
+# message

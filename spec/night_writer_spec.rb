@@ -33,7 +33,7 @@ RSpec.describe Writer do
       ARGV[0] = 'a.txt'
       ARGV[1] = 'new_a.txt'
       night_writer = Writer.new
-      expect(night_writer.translate).to eq(10)
+      expect(night_writer.translate).to eq("O.\n..\n..\n\n")
     end
 
     it "can translate multiple letters" do

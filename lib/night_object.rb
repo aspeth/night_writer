@@ -15,6 +15,7 @@ class NightObject
 
   def translate
     @outgoing_file.write(translated_text)
+    translated_text
   end
 
   def translated_text
