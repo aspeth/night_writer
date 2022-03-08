@@ -40,6 +40,7 @@ module Dictionary
       if braille_letter.include?("")
         empty_string = braille_letter.index("")
         message << letter_hash[braille_letter[0..empty_string-1]]
+        message << "\n"
         message << letter_hash[braille_letter[empty_string+1..empty_string+4]]
       else
         message << letter_hash[braille_letter]
