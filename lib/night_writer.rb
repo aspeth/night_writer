@@ -1,5 +1,5 @@
-require './lib/dictionary'
-require './lib/night_object'
+require './lib/writer'
 
-class NightWriter < NightObject
-end
+night_writer = Writer.new
+night_writer.translate
+puts "Created '#{ARGV[1]}' containing #{night_writer.incoming_character_count} characters"
