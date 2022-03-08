@@ -29,11 +29,11 @@ RSpec.describe Reader do
       expect(night_reader.translated_text).to eq("a")
     end
 
-    xit "can read translated text" do
+    it "can translate multiple letters" do
       ARGV[0] = 'braille_abc.txt'
       ARGV[1] = 'english_abc.txt'
       night_reader = Reader.new
-      expect(night_reader.translate).to eq(10)
+      expect(night_reader.translated_text).to eq("abc")
     end
   end
 end
